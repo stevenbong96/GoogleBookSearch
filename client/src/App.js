@@ -1,9 +1,12 @@
 import React from "react";
+import Save from "./pages/Save/Save";
+import Search from "./pages/Search/Search";
 
 function App() {
   return (
     <div className="App">
-      <h1>HELLLOOO</h1>
+      <Save />
+      <Search />
     </div>
   );
 }
