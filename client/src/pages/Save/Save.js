@@ -1,11 +1,11 @@
 import React from "react";
 
-function Save(){
+function Saved(){
     return(
         <div>
-            <h1>This is Save page</h1>
+            <h1>This is Saved page</h1>
         </div>
     )
 }
 
-export default Save
+export default Saved
