@@ -6,7 +6,8 @@ import SearchResult from "./SearchResult";
 function Search() {
     // Set the hook state
     const [searchBookState, setSearchBookState] = useState({
-        search: ""
+        search: "",
+        result: ""
     });
 
     useEffect(() => {
@@ -32,9 +33,17 @@ function Search() {
         })
     }
 
-    // function handleFormSubmit (event) {
-    //     event.preventDefault();
-    // }
+    function handleFormSubmit (event) {
+        event.preventDefault();
+        API.getBooks(this.state.search)
+        .then(res => {
+            console.log(res);
+            // {this.setSearchBookState({result:res.data.items})}
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
 
     // Render
     return (
@@ -44,8 +53,8 @@ function Search() {
                     <form>
                         <h1>Search for Books!</h1>
                         <div className="form-group">
-                            <label for="exampleInputEmail1">Name of Books</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            <label for="bookName">Name of Books</label>
+                            <input type="text" className="form-control" id="bookName" aria-describedby="emailHelp"
                                 onChange={handleInputChange}
                             />
                         </div>
@@ -59,10 +68,10 @@ function Search() {
             <div className="row">
                 <div className="col-sm-12">
                     <h3>Result</h3>
-                    {searchBookState.map(bookObj => {
+                    {/* {searchBookState.map(bookObj => {
                         // console.log(bookObj);
                         return <SearchResult title={bookObj.volumeInfo.title} author={bookObj.volumeInfo.authors[0]} image={bookObj.volumeInfo.imageLinks.thumbnail} description={bookObj.volumeInfo.description}/>
-                    })}
+                    })} */}
                     {/* info={bookObj.searchInfo.textSnippet}  */}
                 </div>
             </div>
