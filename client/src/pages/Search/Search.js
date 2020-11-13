@@ -11,7 +11,7 @@ function Search() {
                             <label for="exampleInputEmail1">Name of Books</label>
                             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                         </div>
-                        <button type="submit" className="btn btn-primary buttonStyle">Submit</button>
+                        <button type="submit" className="btn btn-primary buttonStyle">Search</button>
                     </form>
                 </div>
             </div>
@@ -41,8 +41,29 @@ function Search() {
                                     <button type="submit">Save</button>
                                 </div>
                             </div>
-                        </div>
 
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    <h6>Name of Books</h6>
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    <h6>Written by: (Author Name)</h6>
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className="col-sm-3">
+                                    <p>Picture Here</p>
+                                </div>
+
+                                <div className="col-sm-9">
+                                    <p>Book Description</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
