@@ -1,10 +1,10 @@
-const db = require("../models");
+const Book = require("../models/book");
 const path = require("path");
 const router = require("express").Router();
 
 // GET all saved books
 router.get("/api/books", (req, res) => {
-    db.Book.findAll()
+    Book.findAll()
     .then(result => {
         res.json(result)
     })
@@ -15,7 +15,7 @@ router.get("/api/books", (req, res) => {
 })
 // POST to save book to database
 router.post("/api/books", (req, res) => {
-    db.Book.create(req.body)
+    Book.create(req.body)
     .then(result => {
         res.json(result)
     })
@@ -27,7 +27,7 @@ router.post("/api/books", (req, res) => {
 
 // DELETE to delete book from database
 router.get("/api/books", (req, res) => {
-    db.Book.findAll()
+    Book.findAll()
     .then(result => {
         res.json(result)
     })
