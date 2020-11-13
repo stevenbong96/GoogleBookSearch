@@ -1,5 +1,6 @@
 import React from "react";
-import "./search.css"
+import "./search.css";
+
 function Search() {
     return (
         <div className="container">
@@ -21,7 +22,7 @@ function Search() {
             <div className="row">
                 <div className="col-sm-12">
                     <h3>Result</h3>
-                    <div className="row">
+                    <div className="row resultStyle">
                         <div className="col-sm-12">
                             <div className="row">
                                 <div className="col-sm-3">
@@ -36,7 +37,7 @@ function Search() {
                                     
                                 </div>
 
-                                <div className="col-sm-3">
+                                <div className="col-sm-3 d-flex justify-content-around">
                                     <button type="submit">View</button>
                                     <button type="submit">Save</button>
                                 </div>
