@@ -1,10 +1,16 @@
 import axios from "axios";
 
-const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
 // const query = "ring";
 
 export default {
   getBooks: function(query) {
-    return axios.get(BASEURL + query);
-  }
+    const BASEURL = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
+    return axios.get(BASEURL);
+  },
+  // saveBook: function(){
+  //   return axios.post("/api/books");
+  // },
+  // deleteBook: function(id){
+  //   return axios.delete("/api/books/" + id);
+  // }
 };

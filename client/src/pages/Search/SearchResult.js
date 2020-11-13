@@ -12,7 +12,7 @@ function SearchResult(props) {
 
                     <div className="col-sm-3 d-flex justify-content-around">
                         <button type="submit">View</button>
-                        <button type="submit">Save</button>
+                        <button type="submit" onClick={props.save}>Save</button>
                     </div>
                 </div>
 
