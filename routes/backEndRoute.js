@@ -3,8 +3,8 @@ const path = require("path");
 const router = require("express").Router();
 
 // GET all saved books
-router.get("/api/books", (req, res) => {
-    Book.findAll()
+router.get("/", (req, res) => {
+    Book.find()
     .then(result => {
         res.json(result)
     })
@@ -14,7 +14,7 @@ router.get("/api/books", (req, res) => {
     })
 })
 // POST to save book to database
-router.post("/api/books", (req, res) => {
+router.post("/", (req, res) => {
     Book.create(req.body)
     .then(result => {
         res.json(result)
@@ -26,8 +26,10 @@ router.post("/api/books", (req, res) => {
 })
 
 // DELETE to delete book from database
-router.get("/api/books", (req, res) => {
-    Book.findAll()
+router.delete("/:id", (req, res) => {
+    Book.remove({
+        _id: mongojs.ObjectId(req.params.id)
+    })
     .then(result => {
         res.json(result)
     })
