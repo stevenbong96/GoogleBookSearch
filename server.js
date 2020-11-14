@@ -17,7 +17,9 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks" ,{
   useCreateIndex: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 
 // Send every request to the React app
