@@ -32,7 +32,7 @@ function Search() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log(searchBookState.search)
+        // console.log(searchBookState.search)
         API.getBooks(searchBookState.search)
             .then(res => {
                 setCurrentSearch(res.data.items)
@@ -42,9 +42,23 @@ function Search() {
                 console.log(err);
             })
     }
+
+    // SAVE specific book
     function handleSave(event) {
         event.preventDefault();
-        console.log(currentSearch[0])
+        console.log(currentSearch)
+    }
+
+    // DELETE specific book
+    function handleDelete(id) {
+        API.deleteBook(id)
+        .then(res => {
+            console.log(res);
+            // window.location.reload();
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     // Render
@@ -68,15 +82,14 @@ function Search() {
             <br />
             <div>
                 {currentSearch.length ? (
-
                     <div className="row">
                         <div className="col-sm-12">
                             <h3>Result</h3>
                             {currentSearch.map(bookObj => {
-                                console.log(bookObj);
+                                // console.log(bookObj);
                                 return (
                                     <div>
-                                        <SearchResult save={handleSave} title={bookObj.volumeInfo.title} author={bookObj.volumeInfo.authors[0]} image={bookObj.volumeInfo.imageLinks.thumbnail} description={bookObj.volumeInfo.description} />
+                                        <SearchResult save={handleSave} title={bookObj.volumeInfo.title} author={bookObj.volumeInfo.authors[0]} image={bookObj.volumeInfo.imageLinks.thumbnail} description={bookObj.volumeInfo.description} link={bookObj.volumeInfo.infoLink}/>
                                     </div>
                                 )
                             })}

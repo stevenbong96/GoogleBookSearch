@@ -11,14 +11,13 @@ function SearchResult(props) {
                     </div>
 
                     <div className="col-sm-3 d-flex justify-content-around">
-                        <button type="submit">View</button>
+                        <a href={props.link} target="_blank">View</a>
                         <button type="submit" onClick={props.save}>Save</button>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="col-sm-12">
-                        {/* <h6>{props.info}</h6> */}
                     </div>
                 </div>
 

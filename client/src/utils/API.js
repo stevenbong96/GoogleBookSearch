@@ -7,10 +7,10 @@ export default {
     const BASEURL = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
     return axios.get(BASEURL);
   },
-  // saveBook: function(){
-  //   return axios.post("/api/books");
-  // },
-  // deleteBook: function(id){
-  //   return axios.delete("/api/books/" + id);
-  // }
+  saveBook: function(){
+    return axios.post("/api/books");
+  },
+  deleteBook: function(id){
+    return axios.delete("/api/books/" + id);
+  }
 };
