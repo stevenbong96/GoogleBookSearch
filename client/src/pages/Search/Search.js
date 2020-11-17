@@ -44,9 +44,18 @@ function Search() {
     }
 
     // SAVE specific book
-    function handleSave(event) {
-        event.preventDefault();
-        console.log(currentSearch)
+    function handleSave(id) {
+        // event.preventDefault();
+        let [bookHistory] = currentSearch.filter(savedBook => id === savedBook.id)
+        console.log(id);
+        console.log(bookHistory);
+        // API.saveBook(bookHistory)
+        // .then(res => {
+        //     console.log(res);
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // })
     }
 
     // DELETE specific book
@@ -89,7 +98,7 @@ function Search() {
                                 // console.log(bookObj);
                                 return (
                                     <div>
-                                        <SearchResult save={handleSave} title={bookObj.volumeInfo.title} author={bookObj.volumeInfo.authors[0]} image={bookObj.volumeInfo.imageLinks.thumbnail} description={bookObj.volumeInfo.description} link={bookObj.volumeInfo.infoLink}/>
+                                        <SearchResult save={handleSave} id={bookObj.id} title={bookObj.volumeInfo.title} author={bookObj.volumeInfo.authors[0]} image={bookObj.volumeInfo.imageLinks.thumbnail} description={bookObj.volumeInfo.description} link={bookObj.volumeInfo.infoLink}/>
                                     </div>
                                 )
                             })}
